@@ -1,12 +1,13 @@
-from DataReader import readCsvFile, readColumnCSV, buildMeasureDict
 import os
 
+from src.DataReader import readDataCsv, readColumnCSV, buildMeasureDict
+
 #test functions
-os.chdir("../..")
+os.chdir("../data/")
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
 
-data = readCsvFile("SampleData2016.csv")
+data = readDataCsv("SampleData2016.csv")
 
 #read diagnosis codes from csv, build map
 pair = readColumnCSV("DiagnosisCode/AMI.csv")

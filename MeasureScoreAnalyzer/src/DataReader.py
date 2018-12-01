@@ -5,10 +5,12 @@ from os import chdir
 '''
 function to read raw data from
 takes arg of csv filename
+drops incomplete rows (with NaN)
 return data as pandas dataframe
 '''
-def readCsvFile(filename):
+def readDataCsv(filename):
     data = pd.read_csv(filename)
+    data = data.dropna()#
     return data
 
 '''

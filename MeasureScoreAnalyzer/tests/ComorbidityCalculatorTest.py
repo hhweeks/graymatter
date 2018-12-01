@@ -1,17 +1,19 @@
-from DataReader import readCsvFile, readColumnCSV, buildMeasureDict
-from ComorbidityCalculator import getDFRowsForMeasure, getComorbidityCols, getComorbidityValues
-from ComorbidityCalculator import addCMValuesToDF
 import os
 
+from src.ComorbidityCalculator import addCMValuesToDF
+from src.ComorbidityCalculator import getDFRowsForMeasure, getComorbidityCols, getComorbidityValues
+
+from src.DataReader import readDataCsv, readColumnCSV, buildMeasureDict
+
 #test
-os.chdir("../..")
+os.chdir("../data/")
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
 
 '''
 boilerplate setup to test functions
 '''
-data = readCsvFile("SampleData2016.csv")
+data = readDataCsv("SampleData2016.csv")
 pair = readColumnCSV("DiagnosisCode/AMI.csv")
 measureDict = buildMeasureDict("DiagnosisCode/")
 '''

@@ -1,10 +1,12 @@
-from LaceCalculator import *
-from ComorbidityCalculator import *
-from DataReader import *
 import os
 
+from src.ComorbidityCalculator import *
+from src.LaceCalculator import *
+
+from src.DataReader import *
+
 #test
-os.chdir("../..")
+os.chdir("../data/")
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)
 
@@ -32,7 +34,7 @@ print(l4)
 '''
 boilerplate setup to test functions
 '''
-data = readCsvFile("SampleData2016.csv")
+data = readDataCsv("SampleData2016.csv")
 measureDict = buildMeasureDict("DiagnosisCode/")
 
 amiDF = getDFRowsForMeasure(data, measureDict, "AMI")

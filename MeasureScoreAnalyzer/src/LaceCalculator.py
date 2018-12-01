@@ -122,5 +122,5 @@ def calculateMeasureScore(measureDF):
 
     denominator = float(len(measureDF))
 
-    print("n={}, d={}".format(numerator, denominator))
+    #print("numerator={}, denominator={}".format(numerator, denominator))
     return numerator/denominator
