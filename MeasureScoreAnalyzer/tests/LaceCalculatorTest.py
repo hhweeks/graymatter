@@ -37,6 +37,7 @@ measureDict = buildMeasureDict("DiagnosisCode/")
 
 amiDF = getDFRowsForMeasure(data, measureDict, "AMI")
 comorbidityDict = buildMeasureDict("ComorbidityColumns/")
+
 submeasureDF = getComorbidityCols(amiDF, comorbidityDict, "AMI")
 comorbidityValuesAMI = getComorbidityValues(submeasureDF)
 amiDF = addCMValuesToDF(amiDF, comorbidityValuesAMI)
@@ -54,5 +55,5 @@ amiDF = calculateLACEColumns(amiDF)
 amiDF = calculateLACEScore(amiDF)
 print(amiDF)
 
-finalScore = calculateMeasureScore("ami", amiDF)
+finalScore = calculateMeasureScore(amiDF)
 print(finalScore)

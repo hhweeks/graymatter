@@ -114,7 +114,7 @@ def calculateLACEScore(measureDF):
 function to calculate final measure score
 measure score = (count LACE score>9)/(count measure rows)
 '''
-def calculateMeasureScore(measureName, measureDF):
+def calculateMeasureScore(measureDF):
     LACEScores=measureDF.LACEScore
 
     numeratorCol = measureDF[measureDF.LACEScore > 9]

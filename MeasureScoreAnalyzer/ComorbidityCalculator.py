@@ -1,14 +1,16 @@
 import pandas as pd
-
-#function that returns a dataframe of the rows with the diagnosis codes corresponding to each measure
+'''
+function that returns a dataframe of the rows with the diagnosis codes corresponding to each measure
+'''
 def getDFRowsForMeasure(dataframe, measureDict, measure):
     diagnosisCodeList = measureDict[measure]
     subdataframe = dataframe[dataframe.diagnosis_code.isin(diagnosisCodeList)]
 
     return subdataframe
-
-#function to return dataframe cols assoc with measure
-#given: measureDict, comorbidityDict, measureDF
+'''
+function to return dataframe cols assoc with measure
+given: measure dictionary, comorbidity dictionary, measure dataframe (df with rows belonging to 1 measure)
+'''
 def getComorbidityCols(measureDF, comorbidityDict, measure):
     cmList = comorbidityDict[measure]
 
@@ -17,7 +19,9 @@ def getComorbidityCols(measureDF, comorbidityDict, measure):
 
     return submeasureDF
 
-#function to calculate comorbidity values
+'''
+function to calculate comorbidity values
+'''
 def getComorbidityValues(submeasureDF):
 
     #count occurences of values per row (i.e. yes=f1, no=f2)
@@ -31,7 +35,9 @@ def getComorbidityValues(submeasureDF):
 
     return valueCount["Yes"]
 
-#add comorbidity value back on to measureDF
+'''
+add comorbidity value back on to measureDF
+'''
 def addCMValuesToDF(measureDF, comorbidityValuesDF):
     measureDF = measureDF.assign(ComorbidityValue=comorbidityValuesDF.values)
 
